@@ -1,0 +1,39 @@
+services:
+
+  reverse_proxy:
+    build: ./nginx/.
+    container_name: reverse_proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      jvnet:
+        ipv4_address: 192.168.1.10
+
+  app:
+    build: ./python/.
+    container_name: app
+    networks:
+      jvnet:
+        ipv4_address: 192.168.1.15
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db_data:/var/lib/mysql
+    env_file: ".env"
+    networks:
+      jvnet:
+        ipv4_address: 192.168.1.20
+
+networks:
+  jvnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
