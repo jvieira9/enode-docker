@@ -6,4 +6,4 @@ COPY privkey.pem /etc/nginx/conf.d/privkey.pem
 COPY options-ssl-nginx.conf /etc/nginx/conf.d/options-ssl-nginx.conf
 COPY ssl-dhparams.pem /etc/nginx/conf.d/ssl-dhparams.pem
 
-EXPOSE 80 443
+EXPOSE 443
