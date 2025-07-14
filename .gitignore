@@ -1,1 +1,7 @@
 db/jvdatamysql
+db/.env
+python/.env
+nginx/fullchain.pem
+nginx/privkey.pem
+nginx/options-ssl-nginx.conf
+nginx/options-ssl-nginx.conf
