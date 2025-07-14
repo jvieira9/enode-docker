@@ -1,55 +1,38 @@
 # enode-docker
 
-A containerized environment for running an application stack with an NGINX reverse proxy, a Python backend, and a MySQL database using Docker Compose.
+## Overview
 
-## 📚 Table of Contents
+This is a containerized environment for running an application stack with an NGINX reverse proxy, a Python backend, and a MySQL database using Docker Compose. This project provides a production-ready containerized setup for deploying a Python application behind an NGINX reverse proxy, with a MySQL database for persistent storage.
 
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Directory Structure](#directory-structure)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
-## 📌 Overview
-
-This project provides a production-ready containerized setup for deploying a Python application behind an NGINX reverse proxy, with a MySQL database for persistent storage.
-
-## 🗂️ Architecture
+## Architecture
 
 **Services:**
 
 1️⃣ **Reverse Proxy (NGINX)**  
-- Builds from: `./nginx/`  
+- Builds from: `./nginx/.`  
 - Exposes port `443`  
 - Handles HTTPS and routes traffic to the app.  
 - Static IP: `192.168.1.10`
 
 2️⃣ **Application (Python)**  
-- Builds from: `./python/`  
+- Builds from: `./python/.`  
 - Uses `.env` in `./python/` for configuration  
 - Static IP: `192.168.1.15`
 
 3️⃣ **Database (MySQL)**  
 - Image: `mysql:8.0`  
-- Data persisted at `./db/jvdatamysql/`  
+- Data persisted at `./db/enodedata/`  
 - Uses `.env` in `./db/` for credentials/config  
 - Exposes port `3306`  
 - Static IP: `192.168.1.20`
 
-All services run on a custom bridge network `jvnet` with subnet `192.168.1.0/24`.
+All services run on a custom bridge network `enodenet` with subnet `192.168.1.0/24`.
 
 ---
 
-## ✅ Prerequisites
+## Prerequisites
 
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
+- [Docker](https://www.docker.com/) / [Docker Compose](https://docs.docker.com/compose/)
 - Open ports `443` and `3306` on your host machine
 
 ---
@@ -62,7 +45,8 @@ All services run on a custom bridge network `jvnet` with subnet `192.168.1.0/24`
    git clone https://github.com/jvieira9/enode-docker.git
    cd enode-docker
    ```
-2. Create .env files:
+2. **Create webhook**
+3. **Create .env files**
 
 - Example of ./python/.env — for your Python app’s environment variables:
 
