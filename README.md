@@ -2,9 +2,7 @@
 
 ## Overview
 
-This is a containerized environment for running an application stack with an NGINX reverse proxy, a Python backend, and a MySQL database using Docker Compose. This project provides a production-ready containerized setup for deploying a Python application behind an NGINX reverse proxy, with a MySQL database for persistent storage.
-
----
+This project provides a production-ready, containerized environment for running a Python application behind an NGINX reverse proxy with a MySQL database for persistent storage. The stack is designed to handle data sent from the Enode API to a webhook hosted on Postman. Incoming webhook requests are received by the NGINX reverse proxy, routed securely to the Python backend, which processes the data and stores it in the MySQL database.
 
 ## Prerequisites
 
@@ -13,8 +11,6 @@ This is a containerized environment for running an application stack with an NGI
 - Public DNS Name - Can be requested via [No-IP](https://www.noip.com/)
 - Certbot
 - Open ports `443` and `3306` on your host machine
-
----
 
 ## Architecture
 
@@ -39,8 +35,6 @@ This is a containerized environment for running an application stack with an NGI
 - Static IP: `192.168.1.20`
 
 All services run on a custom bridge network `enodenet` with subnet `192.168.1.0/24`.
-
----
 
 ## Installation
 
