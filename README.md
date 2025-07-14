@@ -8,10 +8,10 @@ This is a containerized environment for running an application stack with an NGI
 
 **Services:**
 
-1. **Reverse Proxy (NGINX)**  
-- Builds from: `./nginx/.`  
+1. **Reverse Proxy (NGINX)**
+- Builds from: `./nginx/.`
 - Exposes port `443`  
-- Handles HTTPS and routes traffic to the app.  
+- Handles HTTPS and routes traffic to the app
 - Static IP: `192.168.1.10`
 
 2. **Application (Python)**  
@@ -40,7 +40,7 @@ All services run on a custom bridge network `enodenet` with subnet `192.168.1.0/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 1. **Clone the repo:**
 
@@ -48,6 +48,7 @@ All services run on a custom bridge network `enodenet` with subnet `192.168.1.0/
    git clone https://github.com/jvieira9/enode-docker.git
    cd enode-docker
    ```
+
 2. **Obtain DNS Name:**
 
 - Associate your host machine's IP address to a DNS Name, this can be done via [No-IP](https://www.noip.com/)
@@ -63,6 +64,7 @@ sudo apt install certbot python3-certbot-nginx
 sudo certbot --nginx
 ```
 After generating the certificate, tranfer the files `fullchain.pem` `options-ssl-nginx.conf` `privkey.pem` `ssl-dhparams.pem` to `./enode-docker/nginx/.`
+
 4. **Create webhook:**
 
 - Install the [ENODE API Postman Collection](https://enode-api.production.enode.io/postman/latest.json) and create a webhook
@@ -92,6 +94,7 @@ MYSQL_DATABASE=your_db_name
 MYSQL_USER=your_db_user
 MYSQL_PASSWORD=your_db_password
 ```
+
 ## Usage
 
 1. Build and start all services:
