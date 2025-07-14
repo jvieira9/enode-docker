@@ -61,40 +61,51 @@ All services run on a custom bridge network `jvnet` with subnet `192.168.1.0/24`
    ```bash
    git clone https://github.com/jvieira9/enode-docker.git
    cd enode-docker
+   ```
+2. Create .env files:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Example of .env located in enode-docker/db/.env
+- Example of ./python/.env — for your Python app’s environment variables:
 
 ```.env
-MYSQL_ROOT_PASSWORD: ###
-MYSQL_DATABASE: ###
-MYSQL_USER: ###
-MYSQL_PASSWORD: ###
-```
-Example of .env located in enode-docker/python/.env
-```.env
-DB_HOST=13.216.27.150
-DB_USER=root
-DB_PASS=Passw0rd
-DB_NAME=enode_demo
+DB_HOST=your_db_user_ip
+DB_USER=your_db_user
+DB_PASS=your_db_password
+DB_NAME=your_db_name
 
-ENODE_WEBHOOK_SECRET=85pEtSKJojh7UaitSsh2AlZRlt2D02NcpqDVsZW_9f8
-ENODE_CLIENT_ID=503bf672-ffcf-440a-bc5d-b50d230753ba
-ENODE_CLIENT_SECRET=06a969bb3248affe9deff4dca586c1b26ce776ae
+ENODE_WEBHOOK_SECRET=your_webhook_secret
+ENODE_CLIENT_ID=your_client_id
+ENODE_CLIENT_SECRET=your_client_secret
 ```
+
+- Example of ./db/.env — for MySQL root password, database name, user, etc.
+
+```.env
+**Example `db/.env`:**
+
+```env
+MYSQL_ROOT_PASSWORD=your_root_password
+MYSQL_DATABASE=your_db_name
+MYSQL_USER=your_db_user
+MYSQL_PASSWORD=your_db_password
+```
+
+## 🚀 Usage
+
+1. Build and start all services:
+
+``` bash
+docker-compose up --build -d
+```
+2. Stop and remove containers:
+```bash
+docker-compose down
+``` 
+## ⚙️ Configuration
+- NGINX:
+Place your custom NGINX configuration files in ./nginx/. Make sure your Dockerfile in that folder copies them correctly.
+
+### Python App:
+Your application code and dependencies should live in ./python/. Update your Dockerfile there to install dependencies and run the app properly.
+
+Database:
+The MySQL database stores its data persistently in ./db/jvdatamysql/. This means your data won’t be lost when containers are stopped or rebuilt.
