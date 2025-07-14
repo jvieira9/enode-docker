@@ -4,6 +4,18 @@
 
 This is a containerized environment for running an application stack with an NGINX reverse proxy, a Python backend, and a MySQL database using Docker Compose. This project provides a production-ready containerized setup for deploying a Python application behind an NGINX reverse proxy, with a MySQL database for persistent storage.
 
+---
+
+## Prerequisites
+
+- [Docker](https://www.docker.com/) / [Docker Compose](https://docs.docker.com/compose/)
+- Webhook - Can be created via [Postman](https://www.postman.com/)
+- Public DNS Name - Can be requested via [No-IP](https://www.noip.com/)
+- Certbot
+- Open ports `443` and `3306` on your host machine
+
+---
+
 ## Architecture
 
 **Services:**
@@ -27,16 +39,6 @@ This is a containerized environment for running an application stack with an NGI
 - Static IP: `192.168.1.20`
 
 All services run on a custom bridge network `enodenet` with subnet `192.168.1.0/24`.
-
----
-
-## Prerequisites
-
-- [Docker](https://www.docker.com/) / [Docker Compose](https://docs.docker.com/compose/)
-- Webhook - Can be created via [Postman](https://www.postman.com/)
-- Public DNS Name - Can be requested via [No-IP](https://www.noip.com/)
-- Certbot
-- Open ports `443` and `3306` on your host machine
 
 ---
 
@@ -65,11 +67,19 @@ sudo certbot --nginx
 ```
 After generating the certificate, tranfer the files `fullchain.pem` `options-ssl-nginx.conf` `privkey.pem` `ssl-dhparams.pem` to `./enode-docker/nginx/.`
 
-4. **Create webhook:**
+4. **Setup ENODE:**
 
-- Install the [ENODE API Postman Collection](https://enode-api.production.enode.io/postman/latest.json) and create a webhook
+- Create an [ENODE Account](https://developers.enode.com/)
+- Create a new client
+- Save the API credentials
 
-5. **Create .env files:**
+5. **Create webhook:**
+
+- Install the [ENODE API Postman Collection](https://enode-api.production.enode.io/postman/latest.json)
+- Setup the API Credentials
+- Create a webhook, modifying the `body` section and removing the `authentication` block
+
+6. **Create .env files:**
 
 - Modify the two .env files with your data
 
@@ -105,4 +115,8 @@ docker-compose up --build -d
 2. Stop and remove containers:
 ```bash
 docker-compose down
-``` 
+```
+
+## Author
+
+2025 - João Vieira | `jvieira9` on [GitHub](https://github.com/jvieira9)
