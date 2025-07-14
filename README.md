@@ -2,13 +2,14 @@
 
 ./enode-docker/db/.env
 
-´´´
+```.env
 MYSQL_ROOT_PASSWORD: ###
 MYSQL_DATABASE: ###
 MYSQL_USER: ###
 MYSQL_PASSWORD: ###
-´´´
-´´´
+```
+
+```.env
 DB_HOST=13.216.27.150
 DB_USER=root
 DB_PASS=Passw0rd
@@ -17,4 +18,4 @@ DB_NAME=enode_demo
 ENODE_WEBHOOK_SECRET=85pEtSKJojh7UaitSsh2AlZRlt2D02NcpqDVsZW_9f8
 ENODE_CLIENT_ID=503bf672-ffcf-440a-bc5d-b50d230753ba
 ENODE_CLIENT_SECRET=06a969bb3248affe9deff4dca586c1b26ce776ae
-´´´
+```
