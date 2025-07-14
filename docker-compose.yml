@@ -7,7 +7,7 @@ services:
     ports:
       - "443:443"
     networks:
-      jvnet:
+      enodenet:
         ipv4_address: 192.168.1.10
 
   app:
@@ -15,7 +15,7 @@ services:
     container_name: app
     env_file: "./python/.env"
     networks:
-      jvnet:
+      enodenet:
         ipv4_address: 192.168.1.15
 
   db:
@@ -28,11 +28,11 @@ services:
       - ./db/jvdatamysql/:/var/lib/mysql
     env_file: "./db/.env"
     networks:
-      jvnet:
+      enodenet:
         ipv4_address: 192.168.1.20
 
 networks:
-  jvnet:
+  enodenet:
     driver: bridge
     ipam:
       config:
