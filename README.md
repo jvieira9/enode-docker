@@ -62,16 +62,16 @@ Before executing the next commands, your host machine and NGINX container need t
 sudo apt install certbot python3-certbot-nginx
 sudo certbot --nginx
 ```
-
+After generating the certificate, tranfer the files `fullchain.pem` `options-ssl-nginx.conf` `privkey.pem` `ssl-dhparams.pem` to `./enode-docker/nginx/.`
 4. **Create webhook:**
 
 - Install the [ENODE API Postman Collection](https://enode-api.production.enode.io/postman/latest.json) and create a webhook
 
-4. **Create .env files:**
+5. **Create .env files:**
 
 - Modify the two .env files with your data
 
-- Example of ./python/.env — for your Python app’s environment variables:
+- Example of `./python/.env` — for your Python app’s environment variables:
 
 ```.env
 DB_HOST=your_db_user_ip
@@ -84,10 +84,7 @@ ENODE_CLIENT_ID=your_client_id
 ENODE_CLIENT_SECRET=your_client_secret
 ```
 
-- Example of ./db/.env — for MySQL root password, database name, user, etc.
-
-```.env
-**Example `db/.env`:**
+- Example of `./db/.env` — for MySQL root password, database name, user, etc.
 
 ```env
 MYSQL_ROOT_PASSWORD=your_root_password
@@ -95,7 +92,7 @@ MYSQL_DATABASE=your_db_name
 MYSQL_USER=your_db_user
 MYSQL_PASSWORD=your_db_password
 ```
-## 🚀 Usage
+## Usage
 
 1. Build and start all services:
 
@@ -106,12 +103,3 @@ docker-compose up --build -d
 ```bash
 docker-compose down
 ``` 
-## ⚙️ Configuration
-- NGINX:
-Place your custom NGINX configuration files in ./nginx/. Make sure your Dockerfile in that folder copies them correctly.
-
-### Python App:
-Your application code and dependencies should live in ./python/. Update your Dockerfile there to install dependencies and run the app properly.
-
-Database:
-The MySQL database stores its data persistently in ./db/jvdatamysql/. This means your data won’t be lost when containers are stopped or rebuilt.
