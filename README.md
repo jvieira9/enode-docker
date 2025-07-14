@@ -7,9 +7,9 @@ This project provides a production-ready, containerized environment for running 
 ## Prerequisites
 
 - [Docker](https://www.docker.com/) / [Docker Compose](https://docs.docker.com/compose/)
-- Webhook - Can be created via [Postman](https://www.postman.com/)
+- [Postman](https://www.postman.com/)
 - Public DNS Name - Can be requested via [No-IP](https://www.noip.com/)
-- Certbot
+- [Certbot](https://certbot.eff.org/)
 - Open ports `443` and `3306` on your host machine
 
 ## Architecture
