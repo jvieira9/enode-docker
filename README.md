@@ -1,6 +1,6 @@
 # enode-docker
 
-./enode-docker/db/.env
+Example of .env located in enode-docker/db/.env
 
 ```.env
 MYSQL_ROOT_PASSWORD: ###
@@ -8,7 +8,7 @@ MYSQL_DATABASE: ###
 MYSQL_USER: ###
 MYSQL_PASSWORD: ###
 ```
-
+Example of .env located in enode-docker/python/.env
 ```.env
 DB_HOST=13.216.27.150
 DB_USER=root
